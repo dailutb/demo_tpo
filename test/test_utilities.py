@@ -27,5 +27,7 @@ def test_validar_precio_entero_valido():
 #     ("",        False),
 #     (".99",     False),
 # ])
+
 # def test_validar_precio_parametrizado(precio, esperado):
 #     assert validar_precio_unitario(precio) == esperado
+
