@@ -20,6 +20,7 @@ def validar_nombre(nombre):
 # Funcion validar precio_unitario
 # Parametros: precio_unitario:str
 # Retorno: True if OK o False:bool
+# Test
 def validar_precio_unitario(precio_unitario):
     patron = r"[0-9]+(\.[0-9]{1,2})?"
     return bool(re.fullmatch(patron, precio_unitario.strip()))
