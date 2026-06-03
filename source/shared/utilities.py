@@ -21,5 +21,5 @@ def validar_nombre(nombre):
 # Parametros: precio_unitario:str
 # Retorno: True if OK o False:bool
 def validar_precio_unitario(precio_unitario):
-    patron = r"[0-9]+(\.[0-9]{1,2})?"
+    patron = r"-?[0-9]+(\.[0-9]{1,2})?"
     return bool(re.fullmatch(patron, precio_unitario.strip()))
