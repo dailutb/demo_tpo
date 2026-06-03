@@ -1,0 +1,20 @@
+[
+    {
+        "id_producto": 1,
+        "categoria": "Escritura",
+        "nombre": "Lápiz negro HB",
+        "precio_unitario": 350
+    },
+    {
+        "id_producto": 2,
+        "categoria": "Escritura",
+        "nombre": "Bolígrafo azul",
+        "precio_unitario": 500
+    },
+    {
+        "categoria": "Papel",
+        "nombre": "Hojas A4",
+        "precio_unitario": 200.0,
+        "id_producto": 3
+    }
+]
