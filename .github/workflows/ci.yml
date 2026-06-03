@@ -1,0 +1,28 @@
+name: CI — Pruebas Unitarias        # nombre del workflow (aparece en GitHub)
+
+on:                                  # cuándo se dispara
+  push:                              # en cada push
+    branches: [ main, develop ]      # solo en estas ramas
+  pull_request:                      # y en cada Pull Request
+    branches: [ main ]
+
+jobs:
+  test:                              # nombre del job
+    runs-on: ubuntu-latest           # sistema operativo del runner
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4    # clona el repositorio
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: |
+          pip install pytest
+          pip install tabulate
+
+      - name: Ejecutar tests
+        run: python -m pytest -v
