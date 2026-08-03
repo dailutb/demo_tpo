@@ -20,7 +20,8 @@ def main():
     2. Para listar todos los productos
     3. Para buscar producto por id_producto
     4. Para buscar producto por nombre de producto
-    5. Para salir
+    5. Para eliminar producto por id_producto
+    6. Para salir
             """)
         opcion = input("Ingrese su opción: ")
         match opcion:
@@ -63,8 +64,19 @@ def main():
                 except Exception as e:
                     print(f"Error al buscar producto por nombre: {e}")
 
-                
             case "5":
+                # Eliminar producto por id
+                try:
+                    id = input("Ingrese el id del producto a eliminar: ")
+                    productos_found = services.get_producto_by_id(id)
+                    if len(productos_found) == 0:
+                        print(f"No se ha encontrado producto con el id {id}")
+                    else:
+                        services.delete_producto(int(id))
+                        print(f"Producto con id {id} eliminado.")
+                except Exception as e:
+                    print(f"Error al buscar eliminar producto: {e}")
+            case "6":
                 # Terminar App
                 print("Saliendo...")
                 break

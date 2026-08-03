@@ -54,3 +54,32 @@ def get_producto_by_nombre(nombre):
     productos_found = [producto for producto in productos if re.search(nombre, producto["nombre"], re.IGNORECASE)]
     # Retornamos la lista, vacía o con los registros encontrados
     return productos_found
+
+# Funcion update_producto_by_id
+# Parametros: id_producto:int, producto:dict
+# Retorno: True si se actualizó, False si no se encontró el id_producto
+def update_producto_by_id(id_producto, producto):
+    # Recuperamos los datos del archivo
+    productos = storage.read_data(RUTA_PRODUCTOS)
+    # Buscamos el índice del producto a actualizar
+    for i, p in enumerate(productos):
+        if p["id_producto"] == id_producto:
+            producto["id_producto"] = id_producto
+            productos[i] = producto
+            storage.write_data(RUTA_PRODUCTOS, productos)
+            return True
+    return False
+
+# Funcion delete_producto
+# Parametros: id_producto:int
+# Retorno: True si se eliminó, False si no se encontró el id_producto
+def delete_producto(id_producto):
+    # Recuperamos los datos del archivo
+    productos = storage.read_data(RUTA_PRODUCTOS)
+    # Filtramos excluyendo el producto a eliminar
+    productos_restantes = [p for p in productos if p["id_producto"] != id_producto]
+    if len(productos_restantes) == len(productos):
+        return False
+    storage.write_data(RUTA_PRODUCTOS, productos_restantes)
+    return True
+
